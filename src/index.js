@@ -21,6 +21,7 @@ function addTask() {
   let li = document.createElement('li');
   li.appendChild(document.createTextNode(task));
   list.appendChild(li);
+  document.getElementById("create-task-form").reset();
 }
 
 //
