@@ -1,20 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
   // your code here
   
-  const form = document.getElementById("create-task-form")
+  
   const toDo = document.getElementById("new-task-description")
+  const list = document.getElementById("tasks")
+  const form = document.getElementById("create-task-form")
+  
 
-  function addTaskToLost(task) {
-    let list = document.getElementById("tasks")
-    let li = document.createElement("li")
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
 
-    if ( toDo.value.length !== 0 ) {
-      li.innerText = toDo.value
-      list.appendChild(li)
-    }
-    task.preventDefault()
-    task.target.reset()
-  }
+    let task = toDo.value
+    let li = document.createElement('li')
+    li.innerText = task
 
-  form.addEventListener('submit', addTaskToList)
+    const deleteButton = document.createElement("button")
+
+    deleteButton.innerText = "X"
+    li.appendChild(deleteButton)
+
+    deleteButton.addEventListener('click', (e) => {
+      list.removeChild(li)
+    })
+
+    list.appendChild(li)
+
+    toDo.value = ""
+  })
+
 });
