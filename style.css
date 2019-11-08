@@ -12,6 +12,11 @@ body {
 
 button {
   font-size: 7px;
+  margin-left: 20px;
+}
+
+li{
+  border-radius: 5px;
 }
 
 #main-content {
