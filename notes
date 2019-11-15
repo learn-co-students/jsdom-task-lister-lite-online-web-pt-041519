@@ -1,0 +1,7 @@
+
+Default action = POST request to submit the to do to the server and redirect
+- Need to prevent the submission of the form
+- send that submitted string in the DOM 
+
+
+Ad Event listener on the form submit 

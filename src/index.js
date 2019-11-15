@@ -1,27 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
+// load DOM content, grab the necessary DOM elements
+document.addEventListener('DOMContentLoaded', function() {
+   console.log("The DOM has loaded - success!")
+
+   // form input fields 
+   const newTaskForm = document.getElementById('create-task-form')
+   const newTaskDescription = document.getElementById('new-task-description')
+
+   // need to create a new UL for new tasks 
+   const newTaskUl = document.getElementById('tasks')
+
+   // attach event listeners
+   newTaskForm.addEventListener('submit', createTask)
+
+})
 
 
-  // input fields
-  const form = document.getElementById("create-task-form");
-  const toDo = document.getElementById("new-task-description")
+// 3. create the task, stop form from trying to submit
+function createTask(event) {
+   // stops the function from immediately trying to post request
+   event.preventDefault()
 
-  function addTaskToList(e) {
-    // add toDo string 
-    let list = document.getElementById("tasks")
-    let li = document.createElement('li');
-    
-    if ( toDo.value.length !== 0 ) {
-        li.innerText = toDo.value;
-        list.appendChild(li);
-    } 
+   const newTaskDescription = document.getElementById('new-task-description')
+   const newTask = document.createElement('li')
+   newTask.innerText = newTaskDescription.value
 
-    // prevent submit event from performing its default behavior (submitting the form)
-    e.preventDefault();
-    e.target.reset();
-};
+   // then you need to append to the new task ul
+   const newTaskUl = document.getElementById('tasks')
+   newTaskUl.appendChild(newTask)
 
+   // reset the event target after it's been appended to the tasks ul
+   event.target.reset()
 
-// listen for submit
-form.addEventListener('submit', addTaskToList);   
-});
+}
 
