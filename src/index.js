@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let newTask = document.createElement('li')
     newTask.innerText = input.value
+    ul.appendChild(newTask)
 
     input.value = ''
   })
