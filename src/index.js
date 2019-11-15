@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   let form = document.querySelector('form')
-
+  let input = document.querySelector('input#new-task-description')
+  let ul = document.querySelector('ul#tasks')
+  
   form.addEventListener('submit', (e) => {
     e.preventDefault()
-    let input = document.querySelector('input#new-task-description')
 
-    let ul = document.querySelector('ul#tasks')
+    let li = `<li>${task}</li>`
+    ul.textContent += li
 
-    let newTask = document.createElement('li')
-    newTask.textContent = input.value 
+    input.value = ''
   })
 });
