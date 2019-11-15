@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    let li = `<li>${task}</li>`
-    ul.textContent += li
+    let newTask = document.createElement('li')
+    newTask.innerText = input.value
 
     input.value = ''
   })
